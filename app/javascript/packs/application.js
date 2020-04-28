@@ -23,3 +23,25 @@ import { definitionsFromContext } from "stimulus/webpack-helpers"
 const application = Application.start()
 const context = require.context("../controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
+
+
+
+
+
+// VUE 
+import TurbolinksAdapter from 'vue-turbolinks'
+import Vue from 'vue/dist/vue.esm'
+import App from '../app.vue'
+
+import consumer from "../channels/consumer";
+
+Vue.use(TurbolinksAdapter)
+Vue.prototype.$consumer = consumer
+
+Vue.component('app', App)
+
+document.addEventListener('turbolinks:load', () => {
+  const app = new Vue({
+    el: '[data-behaviour="vue"]',
+  })
+})

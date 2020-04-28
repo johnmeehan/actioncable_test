@@ -2,3 +2,12 @@
 <p>Find me in app/views/process/index.html.erb</p>
 
 <%= link_to 'Start a Large Process', process_index_path, id: 'large-process', class: 'btn btn-primary', remote: true %>
+
+
+
+<%# with this data behaviour vue will be loaded here. could even do this on the layout%>
+<div class="container" data-behaviour="vue">
+  <p>Vuejs component listening on the message_channel</p>
+  <app></app>
+
+</div>
